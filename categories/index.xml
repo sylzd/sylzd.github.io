@@ -6,7 +6,7 @@
     <description>Recent content in Categories on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 06 Apr 2020 22:20:24 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 24 Oct 2019 22:20:24 +0800</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>工程实践</title>
       <link>http://localhost:1313/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/</link>
-      <pubDate>Mon, 06 Apr 2020 22:20:24 +0800</pubDate>
+      <pubDate>Thu, 24 Oct 2019 22:20:24 +0800</pubDate>
       
       <guid>http://localhost:1313/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/</guid>
       <description></description>
