@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.68.3 with theme even" />
 
 
-<link rel="canonical" href="http://localhost:1313/post/celery_4.3.0_bug/" />
+<link rel="canonical" href="http://localhost:1313/post/2019-10-24-celery_4.3.0_bug/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,7 +41,7 @@
 <meta property="og:title" content="Celery 4.3 BUG 排查" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/post/celery_4.3.0_bug/" />
+<meta property="og:url" content="http://localhost:1313/post/2019-10-24-celery_4.3.0_bug/" />
 <meta property="article:published_time" content="2019-10-24T22:20:24+08:00" />
 <meta property="article:modified_time" content="2019-10-24T22:20:24+08:00" />
 <meta itemprop="name" content="Celery 4.3 BUG 排查">
@@ -173,7 +173,7 @@ redis==3.2.0</p>
 <p>开始以为是worker-online事件被自己写的monitor catch主了，想通过屏蔽catch解决，结果发现worker-online事件仅仅是上线的时候会发出这个event,而且inspect和events没有半毛钱关系</p>
 <h3 id="后来正确历程如下">后来正确历程如下:</h3>
 <p>搭建了debug环境，观察实例变量，如图：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/5298275-34fade2e3ff22b0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p><img src="%221.jpeg%22" alt="image"></p>
 <p>经调试，发现app.pidbox实例为None</p>
 <p>进一步调试发现 celery.pidbox这条路由的channel实例（即connection）有一条隐晦的traceback：</p>
 <div class="highlight"><div class="chroma">
