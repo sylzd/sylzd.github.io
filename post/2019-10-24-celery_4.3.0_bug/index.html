@@ -173,7 +173,7 @@ redis==3.2.0</p>
 <p>开始以为是worker-online事件被自己写的monitor catch主了，想通过屏蔽catch解决，结果发现worker-online事件仅仅是上线的时候会发出这个event,而且inspect和events没有半毛钱关系</p>
 <h3 id="后来正确历程如下">后来正确历程如下:</h3>
 <p>搭建了debug环境，观察实例变量，如图：</p>
-<p><img src="%221.jpeg%22" alt="image"></p>
+<p><img src="1.jpeg" alt="1"></p>
 <p>经调试，发现app.pidbox实例为None</p>
 <p>进一步调试发现 celery.pidbox这条路由的channel实例（即connection）有一条隐晦的traceback：</p>
 <div class="highlight"><div class="chroma">
