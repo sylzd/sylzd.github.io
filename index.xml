@@ -23,6 +23,15 @@ It makes use of a variety of open source projects including:
     </item>
     
     <item>
+      <title>分布式与数据库的爱恨纠葛 之 网络可靠性</title>
+      <link>https://sylzd.github.io/post/2020-08-25_e2e/</link>
+      <pubDate>Fri, 21 Aug 2020 23:11:41 +0800</pubDate>
+      
+      <guid>https://sylzd.github.io/post/2020-08-25_e2e/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>分布式与数据库的爱恨纠葛 之 Raft算法</title>
       <link>https://sylzd.github.io/post/2020-08-20-raft/</link>
       <pubDate>Thu, 20 Aug 2020 22:20:24 +0800</pubDate>
