@@ -9,22 +9,78 @@
   </url>
   
   <url>
-    <loc>https://sylzd.github.io/post/my-first-blog/</loc>
-    <lastmod>2020-04-06T21:29:48+08:00</lastmod>
+    <loc>https://sylzd.github.io/categories/</loc>
+    <lastmod>2020-08-20T22:20:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://sylzd.github.io/post/</loc>
-    <lastmod>2020-04-06T21:29:48+08:00</lastmod>
+    <lastmod>2020-08-20T22:20:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://sylzd.github.io/categories/</loc>
-    <lastmod>2019-10-24T22:20:24+08:00</lastmod>
+    <loc>https://sylzd.github.io/tags/raft/</loc>
+    <lastmod>2020-08-20T22:20:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://sylzd.github.io/tags/</loc>
+    <lastmod>2020-08-20T22:20:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://sylzd.github.io/tags/%E4%B8%80%E8%87%B4%E6%80%A7/</loc>
+    <lastmod>2020-08-20T22:20:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://sylzd.github.io/tags/%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2020-08-20T22:20:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://sylzd.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/</loc>
+    <lastmod>2020-08-20T22:20:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://sylzd.github.io/post/2020-08-20-raft/</loc>
+    <lastmod>2020-08-20T22:20:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://sylzd.github.io/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/</loc>
+    <lastmod>2020-08-20T22:20:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://sylzd.github.io/categories/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2020-08-20T22:20:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://sylzd.github.io/post/my-first-blog/</loc>
+    <lastmod>2020-04-06T21:29:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -45,27 +101,6 @@
   
   <url>
     <loc>https://sylzd.github.io/tags/python/</loc>
-    <lastmod>2019-10-24T22:20:24+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://sylzd.github.io/tags/</loc>
-    <lastmod>2019-10-24T22:20:24+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://sylzd.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/</loc>
-    <lastmod>2019-10-24T22:20:24+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://sylzd.github.io/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/</loc>
     <lastmod>2019-10-24T22:20:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
