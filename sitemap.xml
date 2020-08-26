@@ -10,7 +10,42 @@
   
   <url>
     <loc>https://sylzd.github.io/post/</loc>
-    <lastmod>2020-08-21T23:11:41+08:00</lastmod>
+    <lastmod>2020-08-26T20:38:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://sylzd.github.io/tags/</loc>
+    <lastmod>2020-08-26T20:38:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://sylzd.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</loc>
+    <lastmod>2020-08-26T20:38:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://sylzd.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2020-08-26T20:38:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://sylzd.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/</loc>
+    <lastmod>2020-08-26T20:38:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://sylzd.github.io/post/2020-08-26_depend/</loc>
+    <lastmod>2020-08-26T20:38:50+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -31,13 +66,6 @@
   
   <url>
     <loc>https://sylzd.github.io/tags/raft/</loc>
-    <lastmod>2020-08-20T22:20:24+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://sylzd.github.io/tags/</loc>
     <lastmod>2020-08-20T22:20:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -130,6 +158,12 @@
   <url>
     <loc>https://sylzd.github.io/</loc>
     <lastmod>2017-08-28T21:41:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://sylzd.github.io/post/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1-%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E4%B8%8E%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

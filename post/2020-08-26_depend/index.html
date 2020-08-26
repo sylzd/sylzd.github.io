@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>软件设计 - 从循环依赖说起 - aDong&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="sylzd" /><meta name="description" content="" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
+
+
+<link rel="canonical" href="https://sylzd.github.io/post/2020-08-26_depend/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="软件设计 - 从循环依赖说起" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sylzd.github.io/post/2020-08-26_depend/" />
+<meta property="article:published_time" content="2020-08-26T20:38:50+08:00" />
+<meta property="article:modified_time" content="2020-08-26T20:38:50+08:00" />
+<meta itemprop="name" content="软件设计 - 从循环依赖说起">
+<meta itemprop="description" content="">
+<meta itemprop="datePublished" content="2020-08-26T20:38:50&#43;08:00" />
+<meta itemprop="dateModified" content="2020-08-26T20:38:50&#43;08:00" />
+<meta itemprop="wordCount" content="2175">
+
+
+
+<meta itemprop="keywords" content="软件工程,设计模式,微服务," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="软件设计 - 从循环依赖说起"/>
+<meta name="twitter:description" content=""/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">aDong&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">aDong&#39;s Blog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">软件设计 - 从循环依赖说起</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-08-26 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#什么是循环依赖">什么是循环依赖</a></li>
+    <li><a href="#相关术语">相关术语</a>
+      <ul>
+        <li><a href="#依赖倒置原则dependency-inversion-principle简称dip">依赖倒置原则（Dependency Inversion Principle，简称DIP）</a></li>
+        <li><a href="#控制反转inversion-of-control缩写为ioc">控制反转（Inversion of Control，缩写为<strong>IoC</strong>）</a></li>
+        <li><a href="#依赖注入dependency-injection简称di">依赖注入（Dependency Injection，简称<strong>DI</strong>）</a></li>
+      </ul>
+    </li>
+    <li><a href="#解决循环依赖">解决循环依赖</a>
+      <ul>
+        <li><a href="#2使用函数或接口传参">2.使用函数或接口传参</a></li>
+        <li><a href="#4-依赖注入">4. 依赖注入</a></li>
+        <li><a href="#5-架构设计">5. 架构设计</a></li>
+      </ul>
+    </li>
+    <li><a href="#微服务应用中的循环依赖">微服务应用中的循环依赖</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="软件设计---从循环依赖说起">软件设计 - 从循环依赖说起</h1>
+<p>[TOC]</p>
+<p>今天review一个mr，发现代码中依赖了他的上层组件的API，而上层组件又依赖于这个mr所在的项目组件，产生了循环依赖的问题，感觉很有意思~分享一下。</p>
+<p>先说结论：不要出现相互依赖或者循环依赖， 最好是单向依赖（高层依赖低层）。</p>
+<h2 id="什么是循环依赖">什么是循环依赖</h2>
+<p>假设A是高层组件，B是低层。简单来说，就是A依赖B,B依赖A。（实际开发设计中，一般不允许B反向依赖A）</p>
+<p>但是也有环形的，会更加复杂一点，A依赖B,B依赖C，而C又依赖A。</p>
+<p>在单体项目中，可能编译器就直接在编译阶段就阻止你循环依赖。比如go语言中<code>package a</code>  import了 <code>package b</code>,如下面这两段代码。(注意本篇文章代码未经过编译，仅表达思想)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">PA</span>
+
+<span class="kn">import</span> <span class="s">&#34;PB&#34;</span>
+
+<span class="kd">func</span> <span class="nf">Foo</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="nx">PB</span><span class="p">.</span><span class="nf">Foo</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">PB</span>
+
+<span class="kn">import</span> <span class="s">&#34;PA&#34;</span>
+
+<span class="kd">func</span> <span class="nf">Foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">PA</span><span class="p">.</span><span class="nf">Foo</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;PB&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">PB</span><span class="p">.</span><span class="nf">Foo</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>此时会直接报<code>import cycle not allowed</code>错误，从根源上阻止了你在项目中用了<code>循环依赖</code>。</p>
+<h2 id="相关术语">相关术语</h2>
+<h3 id="依赖倒置原则dependency-inversion-principle简称dip">依赖倒置原则（Dependency Inversion Principle，简称DIP）</h3>
+<p>面向对象中的一种解耦依赖关系的原则，程序设计的“<a href="https://zh.wikipedia.org/wiki/SOLID_(%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1)">SOLID</a>”五大原则之一，包含如下：</p>
+<ol>
+<li>高层次的模块不应该依赖于低层次的模块，两者都应该依赖于<a href="https://zh.wikipedia.org/wiki/%E6%8A%BD%E8%B1%A1%E5%8C%96_(%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8)">抽象接口</a>。</li>
+<li>抽象接口不应该依赖于具体实现，而具体实现则应该依赖于抽象接口。</li>
+</ol>
+<p>好，下面是大白话。</p>
+<p>第一条，应用的高层模块只依赖一个抽象，至于抽象怎么由底层来实现，我不care。举个例子，celery异步任务框架中定义了任务队列的抽象，而任务队列的底层用RabbitMQ专业的消息队列工具，还是用Redis，甚至MySQL都可以。</p>
+<p>第二条，是说我们在设计依赖关系的时候只用关注抽象，把抽象接口设计好就行了，实现的时候，再面向这些抽象做实现，做面向接口编程。</p>
+<p>当然，这个设计原则与循环依赖没有直接关系，但在此原则的基础上衍生的一些设计模式，在一定程度上能避免循环依赖等依赖问题。</p>
+<h3 id="控制反转inversion-of-control缩写为ioc">控制反转（Inversion of Control，缩写为<strong>IoC</strong>）</h3>
+<p>也是面向对象中的一个原则，但是比<code>依赖倒置原则</code>level要低一些，应用场景也更加具体一点。</p>
+<p>一般来说Class A中用到了Class B的对象b，一般情况下，需要在A的代码中显式的new一个B的对象。“控制”就这个new对象的过程，这是”控制”手段握在A中，就是”正转“。</p>
+<p>然后再来理解”反转“，就是将这个new对象的过程（控制），交给外部。</p>
+<h3 id="依赖注入dependency-injection简称di">依赖注入（Dependency Injection，简称<strong>DI</strong>）</h3>
+<p>是”控制反转“最常用的一种方式。</p>
+<p>如果对象A依赖对象B，对象B由依赖注入工具（第三方，可以是框架，也可以是工厂等，一般叫做依赖注入容器）实例化，并赋给A中对B的引用。“注入”是指第三方将“依赖”传递给调用方的过程。</p>
+<h2 id="解决循环依赖">解决循环依赖</h2>
+<p>这里以go语言为例</p>
+<p>###1. 增加第三方packge</p>
+<p>这个最容易想到，提取出公共函数，然后放到<code>packge C</code>中，A，B都引用<code>package C</code>的函数。不仅能解决问题，也能让人从设计上重新思考架构问题。</p>
+<p>这种思想其实，相当于将<code>packge C</code>作为了依赖注入的容器，只是没有框架带的依赖注入那么灵活。</p>
+<p>把<code>package C</code>作为一个工厂，其实是对依赖注入容器的一种编译时的简单实现。</p>
+<p><!-- raw HTML omitted --></p>
+<h3 id="2使用函数或接口传参">2.使用函数或接口传参</h3>
+<ul>
+<li>函数传参</li>
+</ul>
+<p>思想很简单，B引用A时，不直接引用，而是提供一个传参的接口。当main函数想用B引用A的方法时，将A的方法以参数的形式，传给B。</p>
+<p>抽象一点，在B中方法的参数定义了一个方法的抽象，而恰好A.Foo()恰好满足这个抽象，因此就能在更上层中用B调用A.Foo()了，此时其实是一个更上层的应用同时用了A和B，不存在循环依赖了。</p>
+<ul>
+<li>接口传参</li>
+</ul>
+<p>相对于函数传参来说，只是表达更符合面向对象一些，但原理差不多，代码应该更容易扩展一点。</p>
+<p>总的来说，这两种方式思想类似，相比第一种方式往下增加了一层，这种调用方式其实相当于在上面增加了一层来调用A和B,而不直接在B中反向依赖A。</p>
+<p><!-- raw HTML omitted --></p>
+<p>函数传参如下代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">PA</span>
+
+<span class="kn">import</span> <span class="s">&#34;PB&#34;</span>
+
+<span class="kd">func</span> <span class="nf">Foo</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="nx">PB</span><span class="p">.</span><span class="nf">Foo</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">PB</span>
+
+<span class="kd">func</span> <span class="nf">Foo</span><span class="p">(</span><span class="nx">f</span> <span class="kd">func</span><span class="p">())</span>  <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">f</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+  <span class="s">&#34;PA&#34;</span>
+	<span class="s">&#34;PB&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">//A调用B
+</span><span class="c1"></span>  <span class="nx">PA</span><span class="p">.</span><span class="nf">Foo</span><span class="p">()</span>
+  <span class="c1">//B调用A
+</span><span class="c1"></span>  <span class="nx">PB</span><span class="p">.</span><span class="nf">Foo</span><span class="p">(</span><span class="nx">PA</span><span class="p">.</span><span class="nf">Foo</span><span class="p">())</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>接口传参如下代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">PA</span>
+
+<span class="kn">import</span> <span class="s">&#34;PB&#34;</span>
+
+<span class="kd">type</span> <span class="nx">A</span> <span class="kd">struct</span> <span class="p">{}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="nx">A</span><span class="p">)</span> <span class="nf">Foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">b</span> <span class="p">=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">PB</span><span class="p">.</span><span class="nx">B</span><span class="p">)</span>
+    <span class="nx">reutrn</span> <span class="nx">b</span><span class="p">.</span><span class="nf">Foo</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">PB</span>
+
+<span class="kd">type</span> <span class="nx">FooInterface</span> <span class="kd">interface</span> <span class="p">{</span>
+    <span class="nf">Foo</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">B</span> <span class="kd">struct</span> <span class="p">{}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">B</span><span class="p">)</span> <span class="nf">Foo</span><span class="p">(</span><span class="nx">f</span> <span class="nx">FooInterface</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">f</span><span class="p">.</span><span class="nf">Foo</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="s">&#34;PA&#34;</span>
+<span class="kn">import</span> <span class="s">&#34;PB&#34;</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">a</span> <span class="p">=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">PA</span><span class="p">.</span><span class="nx">A</span><span class="p">)</span>
+  <span class="nx">b</span> <span class="p">=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">PB</span><span class="p">.</span><span class="nx">B</span><span class="p">)</span>
+
+  <span class="c1">// A调用B
+</span><span class="c1"></span>  <span class="nx">a</span><span class="p">.</span><span class="nf">Foo</span><span class="p">()</span>
+  <span class="c1">// B调用A
+</span><span class="c1"></span>  <span class="nx">b</span><span class="p">.</span><span class="nf">Foo</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="4-依赖注入">4. 依赖注入</h3>
+<p>java可以使用框架自带的依赖注入，完成这个解耦的过程。go也能通过reflect间接使用运行时的依赖注入，不过比较复杂，如果不能形成框架的话，大多数情况属于过度设计了，本篇文章，暂时不讨论。</p>
+<h3 id="5-架构设计">5. 架构设计</h3>
+<p>最理想的解决方案，当然就是在架构设计的时候，就不要出现循环依赖的问题，把包的作用都定好，即便无法预知所有需求，在增加包的时候，也要考虑到层级及依赖问题来调整设计。</p>
+<h2 id="微服务应用中的循环依赖">微服务应用中的循环依赖</h2>
+<p>前面的设计模式大都是讨论单体应用。在微服务和各种分布式应用大行其道的2020年，显然无法简单在编译的时候就提醒你依赖有问题，对设计及代码实现的要求更高了，如果出现了循环依赖，刚上线的时候可能没有发现问题，当服务模块需要迭代升级的时候就蛋疼了。至于微服务中服务拆分的原则或细节，有空可以深入研究一下，但有一点是可以肯定的，就是开头的结论：不要出现相互依赖或者循环依赖， 最好是单向依赖（高层依赖低层）。</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">sylzd</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-08-26
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程</a>
+          <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+          <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/2020-08-25_e2e/">
+            <span class="next-text nav-default">分布式与数据库的爱恨纠葛 之 网络可靠性</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/sylzd" class="iconfont icon-github" title="github"></a>
+  <a href="https://sylzd.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">sylzd</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

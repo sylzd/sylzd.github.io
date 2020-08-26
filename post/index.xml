@@ -6,10 +6,19 @@
     <description>Recent content in Posts on aDong&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 21 Aug 2020 23:11:41 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 26 Aug 2020 20:38:50 +0800</lastBuildDate>
     
 	<atom:link href="https://sylzd.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>软件设计 - 从循环依赖说起</title>
+      <link>https://sylzd.github.io/post/2020-08-26_depend/</link>
+      <pubDate>Wed, 26 Aug 2020 20:38:50 +0800</pubDate>
+      
+      <guid>https://sylzd.github.io/post/2020-08-26_depend/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>分布式与数据库的爱恨纠葛 之 网络可靠性</title>
@@ -21,7 +30,7 @@
     </item>
     
     <item>
-      <title>分布式与数据库的爱恨纠葛 之 Raft算法</title>
+      <title>分布式与数据库的爱恨纠葛 之 Raft算法 (长文慎入)</title>
       <link>https://sylzd.github.io/post/2020-08-20-raft/</link>
       <pubDate>Thu, 20 Aug 2020 22:20:24 +0800</pubDate>
       
@@ -54,6 +63,15 @@
       
       <guid>https://sylzd.github.io/post/hidden-post/</guid>
       <description>&lt;p&gt;This post is hidden from the home page.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://sylzd.github.io/post/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1-%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E4%B8%8E%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sylzd.github.io/post/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1-%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E4%B8%8E%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE/</guid>
+      <description>软件设计 - 从循环依赖说起 [TOC] 今天review一个mr，发现代码中依赖了他的上层组件的API，而上层组件又依赖于这个mr所在的项目组件，产生了循</description>
     </item>
     
   </channel>
