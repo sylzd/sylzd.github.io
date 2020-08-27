@@ -30,6 +30,15 @@
     </item>
     
     <item>
+      <title>Go - 从CGO_ENABLED说起</title>
+      <link>https://sylzd.github.io/post/2020-08-27_go-porting/</link>
+      <pubDate>Mon, 06 Apr 2020 21:29:48 +0800</pubDate>
+      
+      <guid>https://sylzd.github.io/post/2020-08-27_go-porting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>My First Blog</title>
       <link>https://sylzd.github.io/post/my-first-blog/</link>
       <pubDate>Mon, 06 Apr 2020 21:29:48 +0800</pubDate>
