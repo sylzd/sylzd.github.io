@@ -23,6 +23,15 @@ It makes use of a variety of open source projects including:
     </item>
     
     <item>
+      <title>Go - 从CGO_ENABLED说起</title>
+      <link>https://sylzd.github.io/post/2020-08-27_go-porting/</link>
+      <pubDate>Fri, 28 Aug 2020 00:48:48 +0800</pubDate>
+      
+      <guid>https://sylzd.github.io/post/2020-08-27_go-porting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>软件设计 - 从循环依赖说起</title>
       <link>https://sylzd.github.io/post/2020-08-26_depend/</link>
       <pubDate>Wed, 26 Aug 2020 20:38:50 +0800</pubDate>
@@ -37,15 +46,6 @@ It makes use of a variety of open source projects including:
       <pubDate>Thu, 20 Aug 2020 22:20:24 +0800</pubDate>
       
       <guid>https://sylzd.github.io/post/2020-08-20-raft/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Go - 从CGO_ENABLED说起</title>
-      <link>https://sylzd.github.io/post/2020-08-27_go-porting/</link>
-      <pubDate>Mon, 06 Apr 2020 21:29:48 +0800</pubDate>
-      
-      <guid>https://sylzd.github.io/post/2020-08-27_go-porting/</guid>
       <description></description>
     </item>
     

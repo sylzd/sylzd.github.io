@@ -6,7 +6,7 @@
     <description>Recent content in 工程实践 on aDong&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 06 Apr 2020 21:29:48 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 28 Aug 2020 00:48:48 +0800</lastBuildDate>
     
 	<atom:link href="https://sylzd.github.io/tags/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Go - 从CGO_ENABLED说起</title>
       <link>https://sylzd.github.io/post/2020-08-27_go-porting/</link>
-      <pubDate>Mon, 06 Apr 2020 21:29:48 +0800</pubDate>
+      <pubDate>Fri, 28 Aug 2020 00:48:48 +0800</pubDate>
       
       <guid>https://sylzd.github.io/post/2020-08-27_go-porting/</guid>
       <description></description>

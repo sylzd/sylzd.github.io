@@ -6,10 +6,19 @@
     <description>Recent content in Categories on aDong&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 26 Aug 2020 20:38:50 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 28 Aug 2020 00:48:48 +0800</lastBuildDate>
     
 	<atom:link href="https://sylzd.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>工程实践</title>
+      <link>https://sylzd.github.io/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Fri, 28 Aug 2020 00:48:48 +0800</pubDate>
+      
+      <guid>https://sylzd.github.io/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>分布式</title>
@@ -35,15 +44,6 @@
       <pubDate>Thu, 20 Aug 2020 22:20:24 +0800</pubDate>
       
       <guid>https://sylzd.github.io/categories/%E7%AE%97%E6%B3%95/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>工程实践</title>
-      <link>https://sylzd.github.io/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/</link>
-      <pubDate>Mon, 06 Apr 2020 21:29:48 +0800</pubDate>
-      
-      <guid>https://sylzd.github.io/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/</guid>
       <description></description>
     </item>
     

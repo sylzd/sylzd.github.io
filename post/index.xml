@@ -6,10 +6,19 @@
     <description>Recent content in Posts on aDong&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 26 Aug 2020 20:38:50 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 28 Aug 2020 00:48:48 +0800</lastBuildDate>
     
 	<atom:link href="https://sylzd.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Go - 从CGO_ENABLED说起</title>
+      <link>https://sylzd.github.io/post/2020-08-27_go-porting/</link>
+      <pubDate>Fri, 28 Aug 2020 00:48:48 +0800</pubDate>
+      
+      <guid>https://sylzd.github.io/post/2020-08-27_go-porting/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>软件设计 - 从循环依赖说起</title>
@@ -26,15 +35,6 @@
       <pubDate>Thu, 20 Aug 2020 22:20:24 +0800</pubDate>
       
       <guid>https://sylzd.github.io/post/2020-08-20-raft/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Go - 从CGO_ENABLED说起</title>
-      <link>https://sylzd.github.io/post/2020-08-27_go-porting/</link>
-      <pubDate>Mon, 06 Apr 2020 21:29:48 +0800</pubDate>
-      
-      <guid>https://sylzd.github.io/post/2020-08-27_go-porting/</guid>
       <description></description>
     </item>
     

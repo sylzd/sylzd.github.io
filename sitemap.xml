@@ -10,21 +10,42 @@
   
   <url>
     <loc>https://sylzd.github.io/categories/</loc>
-    <lastmod>2020-08-26T20:38:50+08:00</lastmod>
+    <lastmod>2020-08-28T00:48:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://sylzd.github.io/post/2020-08-27_go-porting/</loc>
+    <lastmod>2020-08-28T00:48:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://sylzd.github.io/post/</loc>
-    <lastmod>2020-08-26T20:38:50+08:00</lastmod>
+    <lastmod>2020-08-28T00:48:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://sylzd.github.io/tags/</loc>
-    <lastmod>2020-08-26T20:38:50+08:00</lastmod>
+    <lastmod>2020-08-28T00:48:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://sylzd.github.io/tags/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/</loc>
+    <lastmod>2020-08-28T00:48:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://sylzd.github.io/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/</loc>
+    <lastmod>2020-08-28T00:48:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -114,28 +135,7 @@
   </url>
   
   <url>
-    <loc>https://sylzd.github.io/post/2020-08-27_go-porting/</loc>
-    <lastmod>2020-04-06T21:29:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://sylzd.github.io/post/my-first-blog/</loc>
-    <lastmod>2020-04-06T21:29:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://sylzd.github.io/tags/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/</loc>
-    <lastmod>2020-04-06T21:29:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://sylzd.github.io/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/</loc>
     <lastmod>2020-04-06T21:29:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
