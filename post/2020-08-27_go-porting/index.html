@@ -48,7 +48,7 @@
 <meta itemprop="description" content="">
 <meta itemprop="datePublished" content="2020-08-28T00:48:48&#43;08:00" />
 <meta itemprop="dateModified" content="2020-08-28T00:48:48&#43;08:00" />
-<meta itemprop="wordCount" content="1207">
+<meta itemprop="wordCount" content="1261">
 
 
 
@@ -151,7 +151,7 @@
   </div>
 </div>
     <div class="post-content">
-      <h1 id="go---从cgo_enabled说起">Go - 从CGO_ENABLED说起</h1>
+      <h1 id="go---从cgo_enabled说到基本编译姿势">Go - 从CGO_ENABLED说到基本编译姿势</h1>
 <p>[TOC]</p>
 <h2 id="背景">背景</h2>
 <p>有一个项目在3年前的Makefile中没有加上CGO_ENABLED=0选项，而内部又用了net等标准包，于是就依赖了libc。</p>
@@ -200,7 +200,8 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="go的跨平台编译与可移植性">Go的跨平台编译与可移植性</h2>
+</div><p>当然通过CGO除了直接使用C的源码，还有动态链接库、静态链接库等方式来间接使用C语言的源码或库。</p>
+<h2 id="go的跨平台编译与可移植性">Go的跨平台编译与可移植性</h2>
 <h3 id="mac上编译linux下的go程序">Mac上编译Linux下的Go程序</h3>
 <p>首先附上个人在mac上经常使用的跨平台编译linux应用程序的代码</p>
 <div class="highlight"><div class="chroma">
