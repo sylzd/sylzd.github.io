@@ -39,15 +39,6 @@
     </item>
     
     <item>
-      <title>My First Blog</title>
-      <link>https://sylzd.github.io/post/my-first-blog/</link>
-      <pubDate>Mon, 06 Apr 2020 21:29:48 +0800</pubDate>
-      
-      <guid>https://sylzd.github.io/post/my-first-blog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Celery 4.3 BUG 排查</title>
       <link>https://sylzd.github.io/post/2019-10-24-celery_4.3.0_bug/</link>
       <pubDate>Thu, 24 Oct 2019 22:20:24 +0800</pubDate>
